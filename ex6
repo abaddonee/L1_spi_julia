@@ -1,0 +1,102 @@
+################################ EXERCICE 6###############################################
+
+print("EXERCICE 6\n")
+
+
+# Q1. Créer une fonction hello_world qui affiche un message de bienvenue. Lancer la fonction sur l’invite julia :
+# Julia > hello_world()
+
+function hello_world()
+    print("hello_world\n")
+    return 0
+end 
+
+
+
+
+
+#Q2. Créer une fonction name_length() qui affiche une question (on demande le nom), qui lit le nom entré par l’utilisateur et qui affiche un message du type : « Hello, Mister Smith. Your name has 5 letters »
+#Julia > name_length
+
+
+
+function name_length()
+    print("Quel est votre nom? : ")
+    nom = readline()
+    longueure_nom = length(nom)
+    println("hello, $nom your name have $longueure_nom letter")
+end
+
+###################EXERCICE 7 ##################
+
+#Q1. Créer la chaine de caractères Julia : chaine = ". Faire une boucle pour afficher chaque
+# caractère de la chaine avec son indice
+
+chaine = "Langage Julia"
+longueur_chaine = length(chaine)
+
+for i in 1:longueur_chaine
+    print(chaine[i])
+    print(i)
+end
+
+#Q2 Q2. Créer une fonction decoration_string qui décore la chaine précédente avec des " . " entre chaque lettre du type :
+#"L.a.n.g.a.g.e. .J.u.l.i.a."
+
+function decoration_string()
+    chaine = "Langage Julia" 
+    longueur_chaine = length(chaine)
+    for i in 1:longueur_chaine
+        print(chaine[i])
+        print(".")
+    end
+end
+
+# qQ3. Appeler la fonction avec une autre chaine donnée en entrée. Exemple :
+#Julia> decoration_string("je ne sais pas")
+
+function decoration_string_bis(chaine)
+    longueur_chaine = length(chaine)
+    for i in 1:longueur_chaine
+        print(chaine[i])
+        print(".")
+    end
+end
+
+############################## exercice 7 ######
+
+#Q1. Créer une chaine chaine = "To be or not to be, that is the question". Trouver le premier caractère
+#"e" avec la fonction findnext('e',chaine,indice_de_depart)
+
+chaine_be = "To be or not to be, that is the question"
+findnext("e", chaine_be, 1)
+
+#q2 Q2. Utiliser cette fonction avec un caractère qui n’est pas présent dans la chaine. Exemple :
+#Julia> 
+#i got "nothing"
+#Tester la condition d==nothing. Quel est le résultat ?
+# i got True
+
+testt = findnext('z',chaine_be,1)
+println(testt)
+println(testt==nothing)
+
+# Q3. Créer un vecteur vide.
+# Julia> locations = []
+# Puis, en s’appuyant sur les tests précédents, faire une boucle avec while avec la condition d != nothing
+#Afficher le nombre de caractères 'e' trouvés dans la chaîne avec leur position dans le chaine.
+
+location = []
+chaine_be_bis = "To be or not to be, that is the question"
+length_be_bis = length(chaine_be_bis)
+global d = 1
+
+while d != nothing && d <= length_be
+
+    if chaine_be_bis[d] == 'e'
+        push!(location, d)
+    end
+    global d = d + 1
+end
+
+println(location)
